@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Kauã Vinícius Sabino de Moraes" content="Generation Brasil"> 
+    <meta name="description"
+        content="Portfólio pessoal, desenvolvedor Full Stack especializado em criar experiências 
+                digitais incríveis. Conheça meus projetos e entre em contato.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg"> 
+
+    <title>Portifólio Kauã Vinícius Sabino de Moraes</title>
+</head>
+<body>
+    <!-- Cabeçalho da Página -->
+    <header>
+
+        <div class="menu-content">
+
+            <!-- TITULO -->
+            <a href="index.html" id="titulo">Portfólio</a>
+
+            <!-- MENU -->
+            <nav>
+                <ul class="menu-list">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- Seção Principal da Página -->
+    <main>
+        <!-- Seção de boas vindas -->
+    <section id="hero">
+
+            <!-- BOAS VINDAS -->
+        <article class="hero-content">
+
+            <span>Olá, eu sou o Kauã Vinícius</span>
+            <h1>Desenvolvedor Full Stack</h1>
+            <p>Transformo ideias em código e crio experiências digitais incríveis</p>
+
+            <!-- BOTÕES -->
+            <div class="buttons-container">
+                <a href="#contact" class="botao">Entre em Contato</a>
+                <a href="#about" class="botao-outline">Saiba mais...</a>
+            </div>
+
+        </article>
+
+            <!-- IMAGEM -->
+             <figure class="hero-image">
+                <img src="assets/img/Kaua com IA.png" 
+                alt="Foto do autor" 
+                class="float-animation"
+                width="200">
+
+             </figure>
+
+    </section>
+
+        <!-- Seção sobre o Kauã -->
+    <section id="about" class="section-container about-container">
+            
+        <!-- foto para o sobre -->
+            <figure class="about-image">
+                <img src="assets/img/008.JPG" alt="Foto do perfil" width="200">
+            </figure>
+
+        <!-- Criação do container da classe about-container-->
+        <article class="about-content">
+            <h2>Sobre mim</h2>
+            <p>
+                Sou o Kauã, tenho 19 anos, atualmente estou estudando Front-end
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut facere, possimus voluptas laboriosam odit fugit, nobis excepturi porro, aliquid necessitatibus magni? Asperiores commodi esse nihil sed, et nobis deleniti dolore?
+            </p>
+
+            <!-- Botões e Dados -->
+            <div class="about-buttons-data">
+                <!-- BOTÕES -->
+                <div class="buttons-container">
+                    <!-- _blank = abre em uma nova aba -->
+                    <a href="#" target="_blank" class="botao">GitHub</a>
+                    <a href="#" target="_blank" class="botao-outline">Currículo</a>
+                </div>
+
+                <!-- Agrupamento de Dados e Cards -->
+                <div class="data-container">
+                    <div class="data-item">
+                        <span class="data-number">100</span>
+                        <span class="data-label">Seguidores</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-number">10</span>
+                        <span class="data-label">Repositórios</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+        <!-- Seção sobre os projetos do Kauã -->
+    <section id="projects" class="section-container projects-container">
+        <h2>Meus Projetos</h2>
+
+        <!-- Biblioteca Swiper -->
+        <!-- Swiper Container -->
+         <div class="swiper-container">
+            <!-- Agrupa todos os slides -->
+            <div class="swiper-wrapper">
+                <!-- Slides dos Projetos -->
+                <div class="swiper-slide">
+
+                    <!-- Representação de um Card -->
+                    <article class="project-card">
+                        <figure class="project-image">
+                            <img src="assets/icons/social/github.svg" alt="Projeto 1" class="project-image">
+                        </figure>
+
+                        <!-- Agrupa informações do projeto -->
+                        <div class="project-content">
+                                <h3>Projeto GitHub</h3>
+                                <p>Descrição do projeto 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        
+                            <div class="project-tags">
+                                <span class="tag">GitHub</span>
+                            </div>
+
+                            <div class="project-buttons">
+                                <a href="#" target="_blank" class="botao botao-sm">
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank" class="botao-outline botao-sm">
+                                    Acessar Deploy
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Botões de Navegação -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+            <!-- Paginação -->
+            <div class="swiper-pagination"></div>
+        </div> 
+    </section>
+
+        <!-- Seção Formulário de Contato e Redes Sociais -->
+    <section id="contact" class="section-container contact-containter">
+        
+        <!-- REDES SOCIAIS -->
+        <article class="redes-sociais">
+            <h2>Entre em Contato</h2>
+            <p>
+                Fique à vontade para me contatar através das minhas redes sociais!   
+            </p>
+
+            <div class="social-container">
+                <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <img src="assets/icons/social/linkedin.svg" alt="Link para o LinkedIn">
+                </a>
+                <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
+                    <img src="assets/icons/social/github.svg" alt="Link para o GitHub">
+                </a>
+                <a href="#" target="_blank" class="social-icon" aria-label="Instagram">
+                    <img src="assets/icons/social/instagram.svg" alt="Link para o Instagram">
+                </a>
+            </div>
+        </article>
+
+        <form id="formulario">
+
+            <!-- for = inserir rótulo -->
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" name="nome" placeholder="Digite o seu nome completo" required>
+            <!-- span = mensagens de erro -->
+            <span id="erro-nome"></span>
+            
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" name="email" placeholder="Digite o seu email" required>     
+            <span id="erro-email"></span>
+            
+            <label for="assunto">Assunto:</label>
+            <input id="assunto" type="text" name="assunto" placeholder="Digite o assunto da mensagem" required>
+            <span id="erro-assunto"></span>
+
+            <label for="message">Mensagem:</label>
+            <!-- textarea = campo de texto multi-linha -->
+            <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui" required></textarea>
+            <span id="erro-message"></span>
+
+            <br>
+            <button type="submit" class="botao">Enviar Mensagem</button>
+        </form>        
+    </section>
+
+    </main>
+    <!-- Rodapé da Página -->
+    <footer>
+        Desenvolvido por Kauã Vinícius Sabino de Moraes - &copy; 2026
+    </footer>
+</body>
+</html>
