@@ -1,0 +1,1022 @@
+/* Definindo estilos globais padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Variáveis CSS disponíveis globalmente */
+:root {
+    /* Paleta de Cores - Purple */
+    --purple-50: #f4eaff;
+    --purple-100: #e9dcfa;
+    --purple-200: #cdb3f0;
+    --purple-300: #b186e5;
+    --purple-400: #9460db;
+    --purple-500: #6b36c8;
+    --purple-600: #5b2ca0;
+    --purple-700: #4c2177;
+    --purple-800: #441f88;
+    --purple-900: #2a0e4d;
+    --purple-950: #1a0730;
+
+    /* Cores Neutras */
+    --gray-200: #e8e8e8;
+    --gray-400: #505861;
+    --black: #171717;
+    --white: #FAF7FF;
+
+    /* Cores de Estado */
+    --error: #e63946;
+
+    /* Sombras */
+    --shadow-sm: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.055);
+    --shadow-md: 0 0.25rem 0.75rem rgba(107, 54, 200, 0.3);
+    --shadow-lg: 0 0.5rem 1.5rem rgba(255, 255, 255, 0.2);
+
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+
+    /* Tamanhos de Fonte */
+    --text-sm: 0.75rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.5rem;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 2rem;
+    --radius-full: 50%;
+
+    /* Animação Padrão */
+    --transition-default: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth; /* Habilita rolagem suave para âncoras ou seções da página na navegação */
+}
+
+
+body {
+    display: flex; /* contêiner flexível, permitindo organizar seus elementos filhos de forma mais controlada. */
+    flex-direction: column; /* elementos filhos organizados em uma coluna, ou seja, um abaixo do outro. */
+    min-height: 100vh; /* no mínimo 100% da altura total da janela do navegadorda viewport */
+    background-color: var(--black);
+    line-height: 1.6; /* espaçamento entre linhas para melhorar a legibilidade do texto */
+    color: var(--white);
+
+}
+
+main {
+    flex: 1; /* Faz o main ocupar o espaço restante dentro do body */
+}
+
+
+.section-container {
+    max-width: 70rem; /* Largura máxima para manter o conteúdo centralizado e legível */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: var(--spacing-xl) var(--spacing-md); /* Espaçamento interno para evitar que o conteúdo fique colado nas bordas */
+    scroll-margin-top: 6rem;
+}
+
+.buttons-container {
+    display: flex; /* Define o contêiner como um flexbox, permitindo organizar os botões em linha ou coluna. */
+    align-items: center;     /* vertical */
+    gap: var(--spacing-sm); /* Espaçamento entre os botões */
+}
+
+.botao, .button-outline {
+    display: inline-block; /* permite definir largura, altura e espaçamentos, mantendo o botão no fluxo inline. */
+    padding: 0.75rem 2rem; 
+    border: 0.15rem solid transparent; /* Define uma borda sólida transparente para criar um espaço para a borda real quando o botão for hover */
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: var(--transition-default); /*aplica a animação padrão do projeto, suavizando as mudanças de estado. */
+
+}
+
+.botao {
+    background-color: var(--purple-500);
+    color: var(--white);
+    border-color: var(--purple-500);
+}
+
+.botao:hover {
+    border-color: var(--purple-800); /* Altera a cor da borda para um tom mais claro de roxo quando o botão é hover */
+    background-color: var(--purple-800);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-0.25rem); /* Move o botão para cima levemente para criar um efeito de elevação */
+}
+
+.botao-outline {
+    background-color: transparent;
+    color: var(--purple-500);
+    border-color: var(--purple-500);
+}
+
+.botao-outline:hover {
+    background-color: var(--purple-500);
+    color: var(--white);
+    border-color: var(--purple-500);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-0.25rem); /* Move o botão para cima levemente para criar um efeito de elevação */
+}
+
+.botao.botao-sm, .botao-outline.botao-sm {
+    padding: 0.25rem var(--spacing-sm);
+    font-size: var(--text-sm);
+    min-width: 6rem; /* Define uma largura mínima para garantir que o botão tenha um tamanho consistente, mesmo com texto curto. */
+    border-width: 0.125rem; /* Borda um pouco mais fina para botões menores, mantendo a proporção visual. */
+    border-radius: 0.25rem; /* Borda um pouco mais arredondada para botões menores, mantendo a proporção visual. */
+}
+
+/* HEADER */
+
+header {
+    position: sticky; /* Permite que o header fique fixo no topo da página quando o usuário rolar para baixo. */
+    top: 0; /* Define a posição do header para o topo da página. */
+    z-index: 1000; /* Garante que o header fique acima de outros elementos da página. */
+    width: 100%; /* Garante que o header ocupe toda a largura da página. */
+    height: 4rem; /* Define uma altura fixa para o header, garantindo que ele tenha um tamanho consistente. */
+    border-bottom: var(--spacing-xs) solid var(--gray-200); /* Adiciona uma borda inferior para separar visualmente o header do restante do conteúdo. */
+    background-color: var(--purple-800);
+    box-shadow: var(--shadow-sm);
+}
+
+header a {
+    color: var(--white);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    transition: color 0.3s ease; /* Transição suave para a mudança de cor ao passar o mouse sobre os links do header. */
+}
+
+header a:hover {
+    color: var(--purple-100);
+    text-decoration: underline; 
+}
+
+#titulo {
+    font-size: var(--text-2xl);
+    font-weight: 700; /* aplica um peso mais forte, reforçando a hierarquia visual */
+}
+
+.menu-content {
+    display: flex; /* Define o contêiner como um flexbox, permitindo organizar os itens do menu em linha um do lado do outro. */
+    justify-content: space-between; /* Distribui os elementos nas extremidades */
+    align-items: center; /* Centraliza verticalmente os itens do menu */
+    max-width: 70rem; 
+    height: 100%;
+    margin: 0 auto; /* Centraliza horizontalmente o conteúdo do menu dentro do header. */
+    padding: 0 var(--spacing-md); /* Adiciona espaçamento horizontal para evitar que os itens do menu fiquem colados nas bordas do header. */
+    
+}
+
+.menu-list {
+  display: flex;
+  gap: 10px;            /* espaço de 10px entre os itens */
+  list-style: none;     /* remove as bolinhas */
+}
+
+.menu-list a {
+    padding: var(--spacing-xs);
+}
+
+/* HERO */
+
+.hero-container{
+display: flex;
+align-items: center;
+gap: var(--spacing-2xl);
+min-height: calc(100vh - 5rem); /* Ajusta a altura mínima para ocupar toda a altura da viewport, subtraindo a altura do header */
+}
+
+.hero-content {
+    display: flex;
+    flex: 1; /* Permite que o conteúdo do hero ocupe metade do espaço disponível */
+    flex-direction: column; /* Organiza os elementos do hero em uma coluna, um abaixo do outro. */
+    gap: var(--spacing-md);
+}
+
+.hero-content span {
+    font-size: var(--text-xl);
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+}
+
+.hero-content p, .about-content p, .redes-sociais p {
+    font-size: var(--text-lg);
+    color: var(--gray-400);
+}
+
+.hero-image {
+display: flex;
+flex: 1; /* Permite que a imagem do hero ocupe metade do espaço disponível, equilibrando visualmente com o conteúdo do hero. */
+justify-content: center; /* Centraliza a imagem horizontalmente dentro do contêiner do hero. */
+}
+
+.hero-image img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner do hero, mantendo a proporção original. */
+    max-width: 100%; /* Impede que a imagem ultrapasse seu tamanho original, garantindo que ela não fique distorcida. */
+    border: var(--spacing-xs) solid var(--purple-50);
+    border-radius: var(--radius-xl)
+}
+
+/* animação flutuante com o nome em inglês */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0); /* A imagem começa e termina na posição original, criando um ciclo contínuo de movimento. */
+    }
+    
+    50% {
+        transform: translateY(-1.25rem); /* Move a imagem para cima em 1.25rem no meio da animação, criando um efeito de flutuação suave. */
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite; /* Aplica a animação de flutuação com uma duração de 3 segundos, usando uma curva de aceleração suave e repetindo infinitamente. easy-in-out deixa o movimento mais natural */
+}
+
+/* ABOUT */
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    margin: var(--spacing-2xl) auto; /* Centraliza o container do about horizontalmente e adiciona espaçamento vertical. */
+    border-radius: var(--radius-lg);
+    
+}
+
+.about-image {
+    flex: 0 0 17.5rem; /* Permite que a imagem do about ocupe metade do espaço disponível, equilibrando visualmente com o conteúdo do about. */
+    justify-content: center; /* Centraliza a imagem horizontalmente dentro do contêiner do about. */
+}
+
+.about-image img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner do hero, mantendo a proporção original. */
+    box-shadow: var(--shadow-lg);
+    border: 0.35rem solid var(--purple-500);
+    border-radius: var(--radius-full)
+}
+
+.about-content {
+    flex: 1; /* Permite que o conteúdo do about ocupe metade do espaço disponível, equilibrando visualmente com a imagem do about. */
+    display: flex;
+    flex-direction: column; /* Organiza os elementos do about em uma coluna, um abaixo do outro. */
+}
+
+.about-content h2, .projects-container h2, .contact-info h2 {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--purple-800);
+}
+
+.about-content p {
+    text-align: justify; /* Justifica o texto para criar uma aparência mais limpa e organizada, alinhando as bordas esquerda e direita do parágrafo. */
+    margin-bottom: var(--spacing-sm);
+}
+
+.about-buttons-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.about-buttons-data .botao {
+    margin-right: auto;
+}
+
+.data-container {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-top: 0;
+}
+
+.data-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.data-number {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    text-align: center;
+    color: var(--purple-500);
+}
+
+.data-label {
+    font-size: var(--text-sm);
+    text-align: center;
+    color: var(--gray-400);
+}
+
+
+/* PROJECTS */
+
+.projects-container {
+    margin: var(--spacing-2xl) auto; /* Centraliza o container dos projetos horizontalmente e adiciona espaçamento vertical. */
+    border-radius: var(--radius-lg);
+    scroll-margin-top: 3rem; /*define um espaçamento superior ao navegar até essa seção por âncoras, evitando sobreposição com o menu fixo. */
+    text-align: center;
+}
+
+.projects-swiper {
+    padding: var(--spacing-2xl) var(--spacing-xl) var(--spacing-xl); /* Adiciona espaçamento vertical para separar o swiper do restante do conteúdo. */
+    width: 100%;
+    position: relative; /* Necessário para posicionar os botões de navegação do swiper corretamente. */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do swiper, garantindo que os slides sejam exibidos corretamente. */
+}   
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 0.15rem solid var(--gray-200); 
+    background-color: var(--black);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden; /* Garante que o conteúdo do cartão não ultrapasse os limites do cartão, mantendo um layout limpo e organizado. */
+    transition: var(--transition-default); /* Aplica a animação padrão do projeto, suavizando as mudanças de estado. */
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-lg); /* Aumenta a sombra para criar um efeito de elevação mais pronunciado quando o cartão do projeto é hover. */
+}
+
+.project-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+    background-color: linear-gradient(135deg, var(--purple-50) 0%, var(--purple-100) 100%); /* Adiciona um gradiente de fundo para a imagem do projeto, criando um visual mais atraente e moderno. */
+}
+
+.project-image img {
+    width: 75%; /* Garante que a imagem ocupe toda a largura do contêiner do projeto, mantendo a proporção original. */
+    height: 75%; /* Garante que a imagem ocupe toda a altura do contêiner do projeto, mantendo a proporção original. */
+    max-width: 7rem;
+    max-height: 7rem;
+    object-fit: contain; /* Garante que a imagem seja redimensionada para caber dentro do contêiner do projeto sem distorção, mantendo suas proporções originais. */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave para a transformação da imagem, criando um efeito de zoom mais fluido. */
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Permite que o conteúdo do projeto ocupe o espaço restante dentro do cartão do projeto, equilibrando visualmente com a imagem do projeto. */    
+    padding: var(--spacing-md);
+}
+
+.project-content h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.project-content p {
+    font-size: 0.95;
+    color: var(--gray-400);
+    flex: 1; /* Permite que a descrição do projeto ocupe o espaço restante dentro do conteúdo do projeto, equilibrando visualmente com o título do projeto. */
+    margin-bottom: var(--spacing-sm);
+    text-align: left;
+}
+
+.project-tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap; /* Permite que as tags sejam quebradas em várias linhas, se necessário, para evitar que o layout fique desorganizado. */
+
+}
+
+.tag {
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    background-color: var(--black);
+    color: var(--purple-100);
+}
+
+.project-buttons {
+    display: flex;
+    justify-content: center; /* Centraliza os botões horizontalmente dentro do cartão do projeto. */
+    align-items: center; /* Centraliza os botões verticalmente dentro do cartão do projeto. */
+    gap: 0.75rem; /* Espaçamento entre os botões para evitar que fiquem colados um no outro. */
+    margin-top: var(--spacing-sm); /* Adiciona um espaçamento superior para separar os botões do restante do conteúdo do projeto. */
+}
+
+.swiper-wrapper {
+    align-items: stretch; /* Garante que os slides do swiper se estiquem para ocupar toda a altura disponível, mantendo um layout consistente e equilibrado. */
+}
+
+.swiper-slide {
+    display: flex;
+    height: auto;
+}
+
+/* Botões do swiper */
+
+.swiper-button-next, 
+.swiper-button-prev {
+    width: 3rem;
+    height: 3rem;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: var(--text-lg);
+    color: var(--purple-500);
+}
+
+.swiper-button-next:hover:after,
+.swiper-button-prev:hover:after {
+    color: var(--purple-800);
+}
+
+/* Indicadores de paginação */
+.swiper-pagination-bullet {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--gray-200);
+    opacity: 1; /* Define a opacidade para 1 para garantir que os bullets sejam totalmente visíveis. */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--purple-500);
+    width: var(--spacing-lg);
+    border-radius: var(--radius-sm);
+}
+
+/* CONTACT */
+.contact-containter {
+    display: grid; /* Define o contêiner como um grid, permitindo organizar os elementos em linhas e colunas. */
+    grid-template-columns: 1fr 1fr; /* Define duas colunas de largura igual, permitindo que o conteúdo do contato e a imagem do contato sejam exibidos lado a lado. */
+    gap: var(--spacing-2xl)
+}
+
+.redes-sociais h2{
+    margin-bottom: var(--spacing-md); 
+}
+
+.redes-sociais p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.social-container {
+    display: flex;
+    justify-content: center; /* Centraliza os ícones das redes sociais horizontalmente dentro do contêiner. */
+    gap: var(--spacing-lg);
+}
+
+.social-icon {
+    height: 5rem;
+    width: 5rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition-default);
+    background-color: var(--white);
+}
+
+.social-icon img {
+    width: 100%;
+    filter: brightness(0) saturate(100%); /* Aplica um filtro para transformar a imagem em um ícone monocromático, garantindo que os ícones das redes sociais tenham uma aparência consistente e se destaquem contra o fundo. */
+    transition: filter 0.3s ease; /* Adiciona uma transição suave para a mudança de filtro, criando um efeito de destaque mais fluido ao passar o mouse sobre os ícones das redes sociais. */
+}
+
+.instagram:hover {
+    filter: invert(40%) sepia(97%) brightness(79%) contrast(91%) hue-rotate(243deg) saturate(1352%); /* Altera o filtro para criar um efeito de destaque mais pronunciado quando o ícone da rede social é hover, tornando-o mais brilhante e contrastante. */
+}
+
+.linkedin:hover {
+    filter: invert(40%) sepia(97%) brightness(79%) contrast(591%) hue-rotate(243deg) saturate(1352%);
+}
+
+.github:hover {
+    filter: invert(70%) sepia(77%) brightness(79%) contrast(191%) hue-rotate(143deg) saturate(852%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+form label {
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+    font-weight: 600;
+}
+
+form input, form textarea {
+    padding: 0.75rem;
+    border: 0.25rem solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background-color: var(--white);
+    color: var(--black);
+    font-family: inherit; /* Garante que os campos de entrada usem a mesma fonte definida para o corpo do documento, mantendo a consistência visual. */
+    font-size: var(--text-base);
+    width: 100%;
+    transition: border-color 0.3s ease; /* Adiciona uma transição suave para a mudança de cor da borda, criando um efeito de destaque mais fluido ao focar nos campos de entrada. */
+}
+
+form input:focus, form textarea:focus {
+    border-color: var(--purple-600); /* Altera a cor da borda para um tom mais claro de roxo quando o campo de entrada é focado, destacando-o visualmente. */
+    box-shadow: var(--shadow-md); /* Adiciona uma sombra para criar um efeito de elevação, destacando ainda mais o campo de entrada quando ele é focado. */
+    outline: none; /* Remove a borda de foco padrão do navegador para criar um visual mais limpo e personalizado. */
+}
+
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--purple-800);
+    border-top: 0.25rem solid var(--gray-200);
+}
+
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    width: 100%;
+    min-height: calc(100vh - 8rem);
+    padding: var(--spacing-xl) var(--spacing-md)
+}
+
+.success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    max-width: 37.5rem;
+
+}
+
+
+.success-content h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--purple-600);
+}
+
+.success-content h2 {
+    font-size: var(--text-lg);
+    color: var(--gray-200);
+}
+
+.success-content figure {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--black);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-content figure img {
+    width: 6rem;
+    height: 6rem;
+    filter: invert(70%) sepia(67%) brightness(49%) contrast(141%) hue-rotate(073deg) saturate(552%);
+}
+
+@media screen and (max-width: 1024px) {
+
+    /* TRANSFORMANDO A SECAO COM FOTOS EM UMA COLUNA */
+
+    /* COLOCANDO IMAGENS OCUPANDO O ESPAÇO DISPONÍVEL */
+
+    /* Layout */
+    .section-container {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    /* Tipografia */
+    .section-container h1 {
+        font-size: var(--text-3xl);
+    }
+
+    .section-container h2 {
+        font-size: var(--text-2xl);
+    }
+
+    .section-container p  {
+        font-size: var(--text-base);
+    }
+
+    .section-container span {
+        font-size: var(--text-lg);
+    }
+
+    .success-content h1 {
+        font-size: var(--text-3xl);
+    }
+
+    .success-content h2 {
+        font-size: var(--text-lg); 
+    }
+
+    /* Header */
+    #titulo {
+        font-size: var(--text-xl); 
+    }
+
+    /* Header - Oculta menu em telas pequenas */
+    @media (max-width: 768px) {
+        .menu-list {
+            display: none;
+        }
+    }
+
+    /* HERO */
+
+    .hero-container {
+        gap: var(--spacing-lg);
+        flex-direction: column-reverse; /* Organiza os elementos do hero em uma coluna, mas inverte a ordem para que a imagem fique abaixo do conteúdo, criando um layout mais fluido e adaptável em telas menores. */
+        min-height: 60vh; /* Ajusta a altura mínima para ocupar 60% da altura da viewport, permitindo que o conteúdo do hero se ajuste melhor em telas menores. */
+        text-align: center; /* Centraliza o texto dentro do hero para melhorar a legibilidade em telas menores. */
+    }
+
+    .hero-content,
+    .hero-image {
+        width: 90%; /* Garante que o conteúdo do hero e a imagem do hero ocupem 90% da largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+    }
+
+    .hero-image img {
+        object-fit: cover; /* Garante que a imagem do hero seja redimensionada para cobrir todo o contêiner do hero, mantendo suas proporções originais e evitando distorção. */
+     }
+
+
+     .buttons-container {
+        justify-content: center; /* Centraliza os botões horizontalmente dentro do contêiner de botões, criando um layout mais equilibrado e adaptável em telas menores. */
+        width: 100%; /* Garante que o contêiner de botões ocupe toda a largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+    }
+
+    .hero-container .botao,
+    .hero-container .button-outline {
+        padding: 0.75rem 1.5rem; /* Reduz o preenchimento horizontal dos botões para criar um layout mais compacto e adaptável em telas menores. */
+        font-size: 0.95rem; /* Reduz o tamanho da fonte dos botões para criar um layout mais equilibrado e adaptável em telas menores. */   
+        white-space: nowrap; /* Impede que o texto dos botões quebre em várias linhas, mantendo os botões compactos e legíveis em telas menores. */
+    }
+
+    /* ABOUT */
+
+     .about-container {
+        gap: var(--spacing-md);
+        flex-direction: column; /* Organiza os elementos do about em uma coluna, um abaixo do outro, criando um layout mais fluido e adaptável em telas menores. */
+        text-align: center; /* Centraliza o texto dentro do about para melhorar a legibilidade em telas menores. */
+        margin: var(--spacing-lg);
+        padding: var(--spacing-lg);
+        align-items: center; /* Centraliza os elementos do about verticalmente dentro do contêiner do about, criando um layout mais equilibrado e adaptável em telas menores. */
+    }
+
+    .about-image {
+        justify-content: center; /* Centraliza a imagem do about horizontalmente dentro do contêiner do about, criando um layout mais equilibrado e adaptável em telas menores. */
+        display: flex;
+        flex: 0 0 auto; /* Permite que a imagem do about ocupe apenas o espaço necessário para seu conteúdo, evitando que ela se estique para ocupar toda a largura disponível em telas menores. */
+        width: 100%; /* Garante que a imagem do about ocupe toda a largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+    }
+
+    .about-image img {
+        width: 100%; /* Garante que a imagem do about ocupe toda a largura disponível em telas menores, mantendo a proporção original. */
+        max-width: 16rem; /* Define uma largura máxima para a imagem do about, garantindo que ela não fique muito grande em telas menores. */
+    }
+    
+    .about-content {
+        width: 100%; /* Garante que o conteúdo do about ocupe toda a largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+    }
+
+    .about-buttons-data {
+        flex-direction: column; /* Organiza os botões e os dados em uma coluna, um abaixo do outro, criando um layout mais fluido e adaptável em telas menores. */
+        gap: var(--spacing-md); /* Aumenta o espaçamento entre os botões e os dados para criar um layout mais equilibrado e adaptável em telas menores. */
+        align-items: stretch; /* Faz com que os botões e os dados ocupem toda a largura disponível dentro do contêiner, criando um layout mais fluido e adaptável em telas menores. */
+    }
+
+    .about-buttons-data .botao {
+        margin-right: 0; /* Remove a margem direita do botão para criar um layout mais equilibrado e adaptável em telas menores. */
+    }
+
+    .data-container {
+        justify-content: center;
+        width: 100%; /* Garante que o contêiner de dados ocupe toda a largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+    }
+
+    /* PROJECTS */
+    .projects-container {
+        margin: var(--spacing-lg) auto 0; /* Centraliza o container dos projetos horizontalmente e adiciona espaçamento vertical. */
+    }
+
+    .projects-swiper {
+        margin: 0;
+        padding: var(--spacing-sm) var(--spacing-lg); /* Adiciona espaçamento vertical para separar o swiper do restante do conteúdo. */
+    }
+
+     .project-card {
+        width: 100%; /* Garante que o cartão do projeto ocupe toda a largura disponível dentro do swiper, criando um layout mais fluido e adaptável em telas menores. */
+        height: 30rem; /* Define uma altura fixa para o cartão do projeto, garantindo que ele tenha um tamanho consistente em telas menores. */
+        min-height: 30rem;
+        max-height: 30rem;
+        max-width: 100%;
+    }
+
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .project-tags {
+        align-items: flex-start; /* Alinha as tags à esquerda dentro do cartão do projeto, criando um layout mais organizado e adaptável em telas menores. */
+        min-height: 2rem; /* Define uma altura mínima para a seção de tags, garantindo que ela tenha um tamanho consistente mesmo quando houver poucas tags, criando um layout mais equilibrado e adaptável em telas menores. */
+    }
+
+    .swiper-wrapper {
+        align-items: stretch; /* Garante que os slides do swiper se estiquem para ocupar toda a altura disponível, mantendo um layout consistente e equilibrado. */
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        height: auto;
+    }
+
+     /* CONTACT */
+
+     .contact-containter {
+        grid-template-columns: 1fr; /* Define uma única coluna para o layout do contato, organizando os elementos em uma coluna, um abaixo do outro, criando um layout mais fluido e adaptável em telas menores. */
+        gap: var(--spacing-lg); /* Aumenta o espaçamento entre os elementos do contato para criar um layout mais equilibrado e adaptável em telas menores. */
+        width: 90%; /* Garante que o contêiner do contato ocupe 90% da largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+        margin: 0 auto; /* Centraliza o contêiner do contato horizontalmente em telas menores. */
+    }
+
+    
+    /* SUCCESS PAGE */
+    .success-container {
+        padding: var(--spacing-xl) var(--spacing-md); /* Adiciona espaçamento vertical para separar o conteúdo da página de sucesso do restante do conteúdo, criando um layout mais equilibrado e adaptável em telas menores. */
+        min-height: calc(100vh - 10rem);
+    }
+
+     .success-content {
+        max-width: 35rem; /* Garante que o conteúdo da página de sucesso ocupe toda a largura disponível em telas menores, criando um layout mais fluido e adaptável. */
+        gap: var(--spacing-lg); /* Aumenta o espaçamento entre os elementos do conteúdo da página de sucesso para criar um layout mais equilibrado e adaptável em telas menores. */
+    }
+
+    .success-icon {
+        width: 7rem; /* Define uma largura fixa para o ícone de sucesso, garantindo que ele tenha um tamanho consistente em telas menores. */
+        height: 7rem; /* Define uma altura fixa para o ícone de sucesso, garantindo que ele tenha um tamanho consistente em telas menores. */
+    }
+
+    .success-icon img {
+        width: 5rem; /* Garante que a imagem do ícone de sucesso ocupe toda a largura disponível dentro do contêiner do ícone de sucesso, criando um layout mais fluido e adaptável em telas menores. */
+        height: 5rem; /* Garante que a imagem do ícone de sucesso ocupe toda a altura disponível dentro do contêiner do ícone de sucesso, criando um layout mais fluido e adaptável em telas menores. */
+    }
+
+@media screen and (max-width: 480px) {
+
+    /* Layout */
+    .section-container {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    /* Tipografia Mobile */
+    .section-container h1 {
+        font-size: var(--text-xl);
+    }
+
+    .section-container h2 {
+        font-size: var(--text-xl);
+    }
+
+    .section-container p {
+        font-size: var(--text-base);
+    }
+
+    .section-container span {
+        font-size: var(--text-lg);
+    }
+
+    .success-content h1 {
+        font-size: var(--text-xl);
+    }
+
+    .success-content h2 {
+        font-size: var(--text-base);
+    }
+
+    /* Header */
+    #titulo {
+        font-size: var(--text-xl);
+    }
+
+    .menu-list {
+        display: none;
+    }
+
+    /* Hero */
+    .hero-container {
+        gap: var(--spacing-sm);
+    }
+
+    .hero-content {
+        gap: var(--spacing-xs);
+        width: 100%;
+    }
+
+    .buttons-container {
+    flex-direction: column; 
+    gap: 0.75rem; 
+    width: 100%;
+
+    }
+
+    .buttons-container .botao,
+    .buttons-container .botao-outline {
+        width: 100%;
+    }
+
+    .hero-container .botao,
+    .hero-container .botao-outline {
+        padding: 0.75rem 1rem;
+        font-size: var(--text-base);
+        white-space: nowrap;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 20rem;
+    }
+
+    /* About */
+    .about-container {
+        margin: var(--spacing-lg) 0.5rem;
+        padding: var(--spacing-md);
+    }
+
+    .about-image img {
+        max-width: 14rem;
+    }
+
+    .about-buttons-data .botao,
+    .about-buttons-data .botao-outline {
+        width: 100%;
+        padding: 0.75rem var(--spacing-lg);
+        font-size: var(--text-base);
+        text-align: center;
+    }
+
+    .data-number {
+        font-size: var(--text-lg);
+    }
+
+    .data-label {
+        font-size: var(--text-sm);
+    }
+
+    /* Projects */
+    .projects-container {
+        margin: var(--spacing-lg) auto 0;
+    }
+
+    .projects-swiper {
+        position: relative;
+        margin: 0;
+        padding: var(--spacing-sm) 0 2rem 0;
+        overflow: visible;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 20rem;
+        margin: 0 auto;
+    }
+
+    .project-image {
+        height: 10rem;
+    }
+
+    .project-content {
+        padding: var(--spacing-md);
+    }
+
+    .project-content h3 {
+        font-size: var(--text-lg);
+    }
+
+    .project-content p {
+        font-size: var(--text-base);
+    }
+
+    /* Contact */
+    .contact-container {
+        width: 100%;
+    }
+
+    .contact-info p {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .social-container {
+        flex-wrap: wrap;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .social-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    /* Formulário */
+    form {
+        gap: var(--spacing-sm);
+    }
+
+    form label {
+        font-size: var(--text-base);
+    }
+
+    form input,
+    form textarea {
+        padding: 0.75rem;
+        font-size: var(--text-base);
+    }
+
+    form button {
+        padding: 0.75rem var(--spacing-md);
+        font-size: var(--text-base);
+    }
+
+    /* Footer */
+    footer {
+        padding: var(--spacing-md) var(--spacing-sm);
+        font-size: var(--text-sm);
+    }
+    
+    /* Success Page */
+    .success-container {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        min-height: calc(100vh - 8rem);
+    }
+
+    .success-content {
+        gap: var(--spacing-md);
+        max-width: 100%;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .success-icon {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .success-icon img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .success-content .botao {
+        width: 100%;
+        max-width: 20rem;
+        padding: 0.75rem var(--spacing-lg);
+    }
+
+}
+
+    
+}

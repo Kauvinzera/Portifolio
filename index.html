@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+     <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Kauã Vinícius Sabino de Moraes" content="Generation Brasil"> 
@@ -8,8 +16,14 @@
         content="Portfólio pessoal, desenvolvedor Full Stack especializado em criar experiências 
                 digitais incríveis. Conheça meus projetos e entre em contato.">
     <meta name="robots" content="index, follow">
-    
+
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg"> 
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <title>Portifólio Kauã Vinícius Sabino de Moraes</title>
 </head>
@@ -39,7 +53,7 @@
     <!-- Seção Principal da Página -->
     <main>
         <!-- Seção de boas vindas -->
-    <section id="hero">
+    <section id="hero" class="section-container hero-container">
 
             <!-- BOAS VINDAS -->
         <article class="hero-content">
@@ -115,7 +129,7 @@
 
         <!-- Biblioteca Swiper -->
         <!-- Swiper Container -->
-         <div class="swiper-container">
+         <div class="swiper projects-swiper">
             <!-- Agrupa todos os slides -->
             <div class="swiper-wrapper">
                 <!-- Slides dos Projetos -->
@@ -159,7 +173,7 @@
     </section>
 
         <!-- Seção Formulário de Contato e Redes Sociais -->
-    <section id="contact" class="section-container contact-containter">
+    <section id="contact" class="section-container contact-container">
         
         <!-- REDES SOCIAIS -->
         <article class="redes-sociais">
@@ -170,13 +184,13 @@
 
             <div class="social-container">
                 <a href="#" target="_blank" class="social-icon" aria-label="LinkedIn">
-                    <img src="assets/icons/social/linkedin.svg" alt="Link para o LinkedIn">
+                    <img src="assets/icons/social/linkedin.svg" alt="Link para o LinkedIn" class="linkedin">
                 </a>
                 <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
-                    <img src="assets/icons/social/github.svg" alt="Link para o GitHub">
+                    <img src="assets/icons/social/github.svg" alt="Link para o GitHub" class="github">
                 </a>
                 <a href="#" target="_blank" class="social-icon" aria-label="Instagram">
-                    <img src="assets/icons/social/instagram.svg" alt="Link para o Instagram">
+                    <img src="assets/icons/social/instagram.svg" alt="Link para o Instagram" class="instagram">
                 </a>
             </div>
         </article>
