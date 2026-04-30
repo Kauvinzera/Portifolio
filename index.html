@@ -82,7 +82,7 @@
     </section>
 
         <!-- Seção sobre o Kauã -->
-    <section id="about" class="section-container about-container">
+    <section id="about" class="section-container about-container" a>
             
         <!-- foto para o sobre -->
             <figure class="about-image">
@@ -194,8 +194,13 @@
                 </a>
             </div>
         </article>
+        <!-- Action do elemento <form> do HTML define para onde os dados do formulário serão enviados no momento da submissão, ou seja, quando o usuário clica no botão Enviar -->
+        <form id="formulario" action="https://formsubmit.co/cf9a2adbfa733ad729f742590bcbc95b" method="POST">
 
-        <form id="formulario">
+            <!-- O primeiro input, denominado _next, define qual página será exibida após o envio do formulário ser concluído com sucesso -->
+            <input type="hidden" name="_next" value="https://kauvinzera.github.io/Portifolio/success.html"> 
+            <input type="hidden" name="_captcha" value="false">
+            <!-- O segundo input, chamado _captcha, indica que o usuário não precisará resolver um captcha antes do envio do formulário, pois o valor false desativa essa verificação. -->
 
             <!-- for = inserir rótulo -->
             <label for="nome">Nome:</label>
@@ -226,5 +231,11 @@
     <footer>
         Desenvolvido por Kauã Vinícius Sabino de Moraes - &copy; 2026
     </footer>
+
+    <!-- SWIPER JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Script JavaScript -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
